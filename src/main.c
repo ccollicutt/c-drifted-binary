@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 
 // ANSI color codes
 #define RESET   "\x1B[0m"
@@ -23,6 +22,7 @@ int main() {
     printf("%s", CYAN);
     printf(banner, VERSION);
     printf("%s", RESET);
+    fflush(stdout);
     
     while(1) {
         sleep(3600); 
