@@ -1,15 +1,18 @@
 #!/bin/bash
 
+# Create the target directory if it doesn't exist
+mkdir -p /home/ubuntu/bin
+
 # Download and install the drifted binary
-wget -O /usr/local/bin/drifted ${DOWNLOAD_URL}
+wget -O /home/ubuntu/bin/drifted ${DOWNLOAD_URL}
 
 # Check if download was successful
-if [ ! -f /usr/local/bin/drifted ]; then
+if [ ! -f /home/ubuntu/bin/drifted ]; then
   echo "Failed to download drifted binary!"
   exit 1
 fi
 
-chmod +x /usr/local/bin/drifted
+chmod +x /home/ubuntu/bin/drifted
 
 # Execute the binary
-exec /usr/local/bin/drifted 
+exec /home/ubuntu/bin/drifted 
