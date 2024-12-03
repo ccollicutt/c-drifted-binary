@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 WORKDIR /app
-RUN apt-get update && apt-get install -y procps wget
+RUN apt-get update && apt-get install -y procps wget curl
 
 # Add build arg for download URL, comes from github actions
 ARG DOWNLOAD_URL

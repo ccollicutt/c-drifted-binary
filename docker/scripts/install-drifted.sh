@@ -4,7 +4,7 @@
 mkdir -p /home/ubuntu/bin
 
 # Download and install the drifted binary
-wget -O /home/ubuntu/bin/drifted ${DOWNLOAD_URL}
+curl -s -L -o /home/ubuntu/bin/drifted ${DOWNLOAD_URL}
 
 # Check if download was successful
 if [ ! -f /home/ubuntu/bin/drifted ]; then

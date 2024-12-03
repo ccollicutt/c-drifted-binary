@@ -23,5 +23,10 @@ int main() {
     printf(banner, VERSION);
     printf("%s", RESET);
     
+    while(1) {
+        sleep(3600); 
+    }
+
+    // Should never reach here
     return 0;
 } 

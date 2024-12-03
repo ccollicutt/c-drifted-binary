@@ -8,7 +8,7 @@ RUN gcc -o drifted src/main.c
 FROM ubuntu:latest
 
 WORKDIR /app
-RUN apt-get update && apt-get install -y procps wget
+RUN apt-get update && apt-get install -y procps wget curl
 
 COPY --from=builder /build/drifted .
 RUN chown 1000:1000 /app/drifted && chmod +x /app/drifted
