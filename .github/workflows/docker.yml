@@ -67,4 +67,5 @@ jobs:
           tags: ${{ steps.meta-drifted.outputs.tags }}
           labels: ${{ steps.meta-drifted.outputs.labels }}
           build-args: |
-            BUILD_TYPE=drifted 
+            BUILD_TYPE=drifted
+            DOWNLOAD_URL=https://github.com/${{ github.repository }}/releases/download/v${{ env.VERSION }}/drifted 
