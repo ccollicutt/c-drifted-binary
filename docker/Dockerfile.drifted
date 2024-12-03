@@ -1,0 +1,13 @@
+FROM ubuntu:latest
+
+WORKDIR /app
+RUN apt-get update && apt-get install -y procps wget
+
+# Copy and run download script
+COPY docker/scripts/install-drifted.sh .
+RUN chown 1000:1000 /app/install-drifted.sh && chmod +x /app/install-drifted.sh
+
+# Switch to ubuntu user
+USER 1000:1000
+
+CMD ["./install-drifted.sh"]
