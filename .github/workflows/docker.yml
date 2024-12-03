@@ -61,6 +61,7 @@ jobs:
           labels: ${{ steps.meta-no-drift.outputs.labels }}
           build-args: |
             BUILD_TYPE=no-drift
+            DOWNLOAD_URL=https://github.com/${{ github.repository }}/releases/download/v${{ env.VERSION }}/drifted
 
       - name: Build and push drifted image
         uses: docker/build-push-action@v5
@@ -72,4 +73,5 @@ jobs:
           labels: ${{ steps.meta-drifted.outputs.labels }}
           build-args: |
             BUILD_TYPE=drifted
-            DOWNLOAD_URL=https://github.com/${{ github.repository }}/releases/download/v${{ env.VERSION }}/drifted 
+            DOWNLOAD_URL=https://github.com/${{ github.repository }}/releases/download/v${{ env.VERSION }}/drifted
+            

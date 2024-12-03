@@ -1,17 +1,15 @@
-# Build stage
-FROM gcc:latest as builder
-WORKDIR /build
-COPY . .
-RUN gcc -o drifted src/main.c
-
-# Final stage
 FROM ubuntu:latest
 
 WORKDIR /app
 RUN apt-get update && apt-get install -y procps wget curl
 
-COPY --from=builder /build/drifted .
-RUN chown 1000:1000 /app/drifted && chmod +x /app/drifted
+# Add build arg for download URL
+ARG DOWNLOAD_URL
+
+# Download the binary
+RUN curl -L -o drifted ${DOWNLOAD_URL} && \
+    chmod +x drifted && \
+    chown 1000:1000 drifted
 
 # Switch to ubuntu user
 USER 1000:1000
