@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 // ANSI color codes
 #define RESET   "\x1B[0m"
