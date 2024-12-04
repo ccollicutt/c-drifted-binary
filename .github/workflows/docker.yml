@@ -57,7 +57,9 @@ jobs:
           context: .
           file: docker/Dockerfile.no-drift
           push: true
-          tags: ${{ steps.meta-no-drift.outputs.tags }}
+          tags: |
+            ${{ steps.meta-no-drift.outputs.tags }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:nodrift-latest
           labels: ${{ steps.meta-no-drift.outputs.labels }}
           build-args: |
             BUILD_TYPE=no-drift
@@ -69,7 +71,9 @@ jobs:
           context: .
           file: docker/Dockerfile.drifted
           push: true
-          tags: ${{ steps.meta-drifted.outputs.tags }}
+          tags: |
+            ${{ steps.meta-drifted.outputs.tags }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:drifted-latest
           labels: ${{ steps.meta-drifted.outputs.labels }}
           build-args: |
             BUILD_TYPE=drifted
